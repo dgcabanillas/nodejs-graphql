@@ -1,0 +1,29 @@
+// Enlace de la lista de reproducción
+https://www.youtube.com/watch?v=248ktnQhQjI&list=PLpLi1unCLu83YLJ-0jA6-Ni1kcbsQfhsY
+
+npm init
+npm i -D @babel/core @babel/node @babel/preset-env
+
+// creamos el archivo ".babelrc"
+{
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
+
+npm i -D nodemon
+
+// creamos la carpeta "src"
+
+// configuramos el archivo "package.json"
+{
+  ...
+  "scripts": {
+    "start": "nodemon ./src/index.js -e js --exec babel-node",
+    ...
+  },
+  ...
+}
+
+npm install --save graphql
+npm install --save apollo-server
