@@ -1,0 +1,18 @@
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    password: String!
+    createdAt: String!
+    updatedAt: String!
+    #asociacion de uno a muchos
+    articles: [Article!]
+}
+
+type Query {
+    allUsers: [User!]
+}
+
+type Mutation {
+    signUp(username: String!, email: String!, password: String!): User!
+}

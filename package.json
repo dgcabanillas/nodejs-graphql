@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/index.js -e js --exec babel-node",
+    "start": "nodemon ./src/server.js -e js, graphql --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Diego Cabanillas",
@@ -17,6 +17,11 @@
   },
   "dependencies": {
     "apollo-server": "^2.19.0",
-    "graphql": "^15.4.0"
+    "graphql": "^15.4.0",
+    "graphql-tools": "^7.0.1",
+    "pg": "^8.4.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "5.22.3",
+    "sequelize-cli": "5.5.1"
   }
 }

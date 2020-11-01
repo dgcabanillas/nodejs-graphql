@@ -27,3 +27,13 @@ npm i -D nodemon
 
 npm install --save graphql
 npm install --save apollo-server
+npm install --save sequelize@5.22.3 pg pg-hstore
+npm i -S graphql-tools
+
+
+
+
+
+
+
+
