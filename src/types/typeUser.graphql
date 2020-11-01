@@ -9,10 +9,15 @@ type User {
     articles: [Article!]
 }
 
+type AuthPayload {
+    token: String!
+}
+
 type Query {
     allUsers: [User!]
 }
 
 type Mutation {
     signUp(username: String!, email: String!, password: String!): User!
+    login(email: String!, password: String!): AuthPayload
 }

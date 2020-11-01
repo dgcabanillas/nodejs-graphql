@@ -1,4 +1,3 @@
-
 export default ( sequelize, DataTypes ) => {
 
     const User = sequelize.define("User", {
@@ -29,13 +28,7 @@ export default ( sequelize, DataTypes ) => {
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: {
-                    args: [8, 20],
-                    msg: "El password debe tener entre 8 y 20 caracteres"
-                }
-            }
+            allowNull: false
         }
     })
 

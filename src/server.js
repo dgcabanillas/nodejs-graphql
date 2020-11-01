@@ -1,9 +1,9 @@
-import Http from 'http';
 import { ApolloServer, makeExecutableSchema } from 'apollo-server';
 import models from './models'
 import typeDefs from './types';
 import resolvers from './resolvers';
 
+const SECRET = process.env.SECRET || 'efepemano';
 
 const schema = makeExecutableSchema({
     typeDefs,
@@ -13,7 +13,8 @@ const schema = makeExecutableSchema({
 const apollo = new ApolloServer({
     schema,
     context: {
-        models
+        models,
+        SECRET
     }
 })
 
