@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { tryLogin } from '../util/auth'
+import { createToken, tryLogin, refreshToken } from '../util/auth'
 
 export default {
     Query: {
@@ -17,13 +17,20 @@ export default {
         }
     },
     Mutation: {
-        signUp: async ( _, args, { models }) => {
+        signup: async ( _, args, { models, SECRET }) => {
             const user = args;
             user.password = await bcrypt.hash( user.password, 12 );
-            return models.User.create( user );
+            const newUser = models.User.create( user )
+            return { 
+                user: newUser, 
+                token: createToken(newUser.id, SECRET)
+            };
         },
         login: async ( _, { email, password }, { models, SECRET }) => {
             return tryLogin( email, password, models, SECRET );
+        },
+        refreshToken: (_, { token }, { SECRET }) => {
+            return refreshToken( token, SECRET );
         }
     }
 }
