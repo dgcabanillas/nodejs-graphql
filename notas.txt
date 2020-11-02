@@ -32,8 +32,14 @@ npm i -S graphql-tools
 
 npm install --save jsonwebtoken bcrypt lodash
 
+npm add sequelize-cli
+npm install @babel/register
 
-
+/* -- Migracion con sequelize-cli
+node_modules/.bin/sequelize-cli --help
+node_modules/.bin/sequelize-cli migration:generate --name AddRoleToUser     <- genera el archivo de migraciones
+node_modules/.bin/sequelize-cli db:migrate
+*/
 
 
 

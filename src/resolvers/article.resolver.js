@@ -1,6 +1,7 @@
 export default {
     Query: {
-        allArticles: (_, args, {models} ) => {
+        allArticles: (_, args, {models, user} ) => {
+            console.log({ user });
             return models.Article.findAll({
                 include: [{
                     model: models.Tag,

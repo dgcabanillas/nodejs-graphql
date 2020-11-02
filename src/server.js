@@ -2,6 +2,7 @@ import { ApolloServer, makeExecutableSchema } from 'apollo-server';
 import models from './models'
 import typeDefs from './types';
 import resolvers from './resolvers';
+import { getUser } from './util/auth';
 
 const SECRET = process.env.SECRET || 'efepemano';
 
@@ -12,9 +13,17 @@ const schema = makeExecutableSchema({
 
 const apollo = new ApolloServer({
     schema,
-    context: {
-        models,
-        SECRET
+    context: ({req}) => {
+        const token = req.headers['x-token'];
+        const { id, role } = getUser( token, SECRET );
+        return {
+            models,
+            SECRET,
+            user: {
+                id,
+                role
+            }
+        }
     }
 })
 

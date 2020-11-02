@@ -7,6 +7,19 @@ type User {
     updatedAt: String!
     #asociacion de uno a muchos
     articles: [Article!]
+    role: Role!
+}
+
+enum Role {
+    ADMIN
+    EDITOR
+    NORMAL
+}
+
+input userEdit {
+    username: String
+    email: String
+    role: Role
 }
 
 type AuthResponse {
@@ -22,4 +35,5 @@ type Mutation {
     signup (username: String!, email: String!, password: String!): AuthResponse!
     login (email: String!, password: String!): AuthResponse!
     refreshToken (token: String!): String!
+    userEdit (id: ID!, dataEdit: userEdit!): User!
 }

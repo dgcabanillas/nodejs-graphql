@@ -1,6 +1,6 @@
 export default ( sequelize, DataTypes ) => {
 
-    const User = sequelize.define("User", {
+    const User = sequelize.define("user", {
         username: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -29,6 +29,10 @@ export default ( sequelize, DataTypes ) => {
         password: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        role: {
+            type: DataTypes.ENUM( 'ADMIN', 'EDITOR', 'NORMAL' ),
+            defaultValue: 'NORMAL'
         }
     })
 

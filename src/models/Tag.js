@@ -1,7 +1,7 @@
 
 export default (sequelize, DataTypes) => {
     
-    const Tag = sequelize.define("Tag", {
+    const Tag = sequelize.define("tag", {
         name: {
             type: DataTypes.STRING,
             allowNull: false
